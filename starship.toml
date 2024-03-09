@@ -1,0 +1,336 @@
+# Starship docs: https://starship.rs/config/
+
+format = '$sudo$time $all$directory$character'
+
+[sudo]
+disabled = false
+format = '\[[root]($style)\]'
+
+[time]
+format = '\[[$time]($style)\] -'
+time_format = "%T"
+style = "bright-white"
+disabled = false
+
+[directory]
+read_only = " 󰌾"
+truncation_length = 10
+style = "bold bright-cyan"
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+[hostname]
+ssh_only = true
+format = "<[$hostname]($style)> "
+style = "bold white"
+ssh_symbol = " "
+
+[username]
+format = "[$user]($style) "
+style_user = "bold bright-blue"
+show_always = true
+
+[character]
+error_symbol = "[ ](bold red) "
+success_symbol = "[ ](bold green) "
+
+[cmd_duration]
+min_time = 3_000  # Show command duration over 3,000 milliseconds
+format = '\[[  $duration]($style)\]'
+
+[localip]
+ssh_only = true
+format = '@ [$localipv4](bold red) '
+
+[memory_usage]
+symbol = "󰍛 "
+format = '\[$symbol[$ram( | $swap)]($style)\]'
+threshold = 70
+style = "bold dimmed white"
+disabled = false
+
+# Tools, Languages, etc.
+# --- git ---
+[git_branch]
+format = '\[[$symbol$branch]($style)\]'
+style = "bold"
+symbol = " "
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+tag_symbol = " "
+
+[git_status]
+conflicted = " "
+ahead = "⇡ ${count}× "
+behind = "⇣ ${count}× "
+diverged = "⇕ ⇡ ${ahead_count}× ⇣ ${behind_count}× "
+untracked = " ${count}× "
+stashed = " "
+modified = " ${count}× "
+staged = "  ${count}× "
+renamed = "  ${count}× "
+deleted = "  ${count}× "
+format = '([\[$all_status$ahead_behind\]]($style))'
+
+# --- os ---
+[os]
+format = '\[[$symbol]($style)\]'
+disabled = true
+
+[os.symbols]
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+Fedora = " "
+Garuda = "󰛓 "
+Gentoo = " "
+Linux = " "
+Macos = " "
+Mint = " "
+OracleLinux = "󰌷 "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+SUSE = " "
+Ubuntu = " "
+Windows = "󰍲 "
+
+# --- battery ---
+[battery]
+charging_symbol = "󰂇 "
+discharging_symbol = "󱐌 "
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 20
+style = "bold yellow"
+
+[aws]
+symbol = "  "
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+disabled = true
+
+[gcloud]
+symbol = "  "
+format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+disabled = true
+
+[nodejs]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+detect_folders = []
+detect_files = ['package.json', '.node-version']
+
+[package]
+disabled = true
+format = '\[[$symbol$version]($style)\]'
+
+[custom.svelte]
+detect_extensions = ['svelte']
+detect_files = ['svelte.config.js']
+symbol = " "
+style = "yellow"
+format = '\[[$symbol]($style)\]'
+
+[custom.angular]
+detect_files = ['angular.json']
+detect_extensions = ['component.ts']
+symbol = "󰚿 "
+style = "red"
+format = '\[[$symbol]($style)\]'
+
+[rust]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[python]
+symbol = " "
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
+[buf]
+symbol = " "
+format = '\[[$symbol]($style)\]'
+
+[c]
+symbol = " "
+format = '\[[$symbol($version(-$name))]($style)\]'
+
+[conda]
+symbol = " "
+format = '\[[$symbol$environment]($style)\]'
+
+[crystal]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[dart]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[docker_context]
+symbol = " "
+format = '\[[$symbol$context]($style)\]'
+
+[elixir]
+symbol = " "
+format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
+
+[elm]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[fennel]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[fossil_branch]
+symbol = " "
+format = '\[[$symbol$branch]($style)\]'
+
+[golang]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[guix_shell]
+symbol = " "
+format = '\[[$symbol]($style)\]'
+
+[haskell]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[haxe]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[hg_branch]
+symbol = " "
+format = '\[[$symbol$branch]($style)\]'
+
+[java]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[julia]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[kotlin]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[lua]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[meson]
+symbol = "󰔷 "
+format = '\[[$symbol$project]($style)\]'
+
+[nim]
+symbol = "󰆥 "
+format = '\[[$symbol($version)]($style)\]'
+
+[nix_shell]
+symbol = " "
+format = '\[[$symbol$state( \($name\))]($style)\]'
+
+[ocaml]
+symbol = " "
+format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
+
+[perl]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[php]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[rlang]
+symbol = "󰟔 "
+format = '\[[$symbol]($style)\]'
+
+[ruby]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[scala]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[swift]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[zig]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[bun]
+format = '\[[$symbol($version)]($style)\]'
+
+[cmake]
+format = '\[[$symbol($version)]($style)\]'
+
+[cobol]
+format = '\[[$symbol($version)]($style)\]'
+
+[daml]
+format = '\[[$symbol($version)]($style)\]'
+
+[deno]
+format = '\[[$symbol($version)]($style)\]'
+
+[dotnet]
+format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
+
+[erlang]
+format = '\[[$symbol($version)]($style)\]'
+
+[gradle]
+format = '\[[$symbol($version)]($style)\]'
+
+[helm]
+format = '\[[$symbol($version)]($style)\]'
+
+[kubernetes]
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[opa]
+format = '\[[$symbol($version)]($style)\]'
+
+[openstack]
+format = '\[[$symbol$cloud(\($project\))]($style)\]'
+
+[purescript]
+format = '\[[$symbol($version)]($style)\]'
+
+[raku]
+format = '\[[$symbol($version-$vm_version)]($style)\]'
+
+[red]
+format = '\[[$symbol($version)]($style)\]'
+
+[spack]
+format = '\[[$symbol$environment]($style)\]'
+
+[terraform]
+format = '\[[$symbol$workspace]($style)\]'
+
+[vagrant]
+format = '\[[$symbol($version)]($style)\]'
+
+[vlang]
+format = '\[[$symbol($version)]($style)\]'
+
+[solidity]
+format = '\[[$symbol($version)]($style)\]'
