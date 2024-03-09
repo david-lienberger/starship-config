@@ -1,4 +1,5 @@
 # Starship docs: https://starship.rs/config/
+# FiraCode Nerd Font: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
 
 format = '$sudo$time $all$directory$character'
 
